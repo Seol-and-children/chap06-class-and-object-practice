@@ -24,7 +24,7 @@ public class Bread {
             this.temperature = sc.nextInt();
             System.out.println(this.temperature + "ºC 로 설정되었습니다.");
             count++;
-        } else if (isOn && count != 0) {
+        } else if (isOn) {
             System.out.println("이미 조리가 시작되었습니다.");
         } else {
             System.out.println("오븐을 먼저 켜주세요");
@@ -34,7 +34,7 @@ public class Bread {
     public void upTemperature() {
         if (isOn && count == 0) {
             System.out.println("먼저 온도 설정부터 해주세요");
-        } else if (isOn && count != 0) {
+        } else if (isOn) {
             this.temperature += 10;
             state += (temperature / 20);
             System.out.println("온도를 10ºC 올렸습니다. 현재 온도는 " + temperature + "ºC 입니다.");
@@ -48,7 +48,7 @@ public class Bread {
     public void staying() {
         if (isOn && count == 0) {
             System.out.println("먼저 온도 설정부터 해주세요");
-        } else if (isOn && count != 0) {
+        } else if (isOn) {
             state += (temperature / 20);
             System.out.println("빵이 구워지며 맛있는 냄새가 납니다. 현재 온도는 " + temperature + "ºC 입니다.");
             System.out.println("빵이 " + state + "% 구워졌습니다.");
@@ -61,7 +61,7 @@ public class Bread {
     public void downTemperature() {
         if (isOn && count == 0) {
             System.out.println("먼저 온도 설정부터 해주세요");
-        } else if (isOn && count != 0) {
+        } else if (isOn) {
             this.temperature -= 10;
             state += (temperature / 20);
             System.out.println("온도를 10ºC 내렸습니다. 현재 온도는 " + temperature + "ºC 입니다.");
