@@ -47,10 +47,10 @@ public class Bread {
 
     public void staying() {
         if (isOn && count == 0) {
-            System.out.print("먼저 온도 설정부터 해주세요");
+            System.out.println("먼저 온도 설정부터 해주세요");
         } else if (isOn && count != 0) {
             state += (temperature / 20);
-            System.out.println("빵이 구워지며 맛있는 냄새가 납니다. 현재 온도는 " + temperature + "ºC 입니다." );
+            System.out.println("빵이 구워지며 맛있는 냄새가 납니다. 현재 온도는 " + temperature + "ºC 입니다.");
             System.out.println("빵이 " + state + "% 구워졌습니다.");
             count++;
         } else {
@@ -81,12 +81,18 @@ public class Bread {
             System.out.println("빵이 " + count + "분 만에 " + state + "% 구워졌습니다.");
             System.out.println("빵이 맛있게 구워졌습니다. 훌륭합니다!");
             isOn = false;
-        } else if (isOn) {
-            System.out.println("빵이 " + count + "분 만에" + state + "% 구워졌습니다.");
+        } else if (isOn && state >= 0) {
+            System.out.println("빵이 " + count + "분 만에 " + state + "% 구워졌습니다.");
             System.out.println("밀가루 반죽 맛이 나네요. 대단합니다!");
+            isOn = false;
+        } else if (isOn) {
+            System.out.println("빵이 " + count + "분 만에 " + state + "% 구워졌습니다.");
+            System.out.println("빵이 얼어서 이빨이 부서졌습니다.");
             isOn = false;
         } else {
             System.out.println("오븐 먼저 켜주세요");
         }
+        state = 0;
+        count = 0;
     }
 }
